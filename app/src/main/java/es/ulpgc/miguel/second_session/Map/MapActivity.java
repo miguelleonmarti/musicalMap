@@ -1,6 +1,11 @@
 package es.ulpgc.miguel.second_session.Map;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
 import android.media.Image;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +27,10 @@ public class MapActivity
   // declaring the buttons
   private ImageView map;
 
+  // media player
+  private MediaPlayer mediaPlayer;
+
+  @SuppressLint("ClickableViewAccessibility")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -33,12 +42,26 @@ public class MapActivity
     // listeners
     map.setOnTouchListener(new View.OnTouchListener() {
       @Override
-      public boolean onTouch(View v, MotionEvent event) {
-        double x = event.getX();
-        double y = event.getY();
-        Log.d("c",String.valueOf(x) + ' ' + String.valueOf(y));
-        presenter.getZone(x, y);
+      public boolean onTouch(View view, MotionEvent event) {
+        int songURI = presenter.getZone(event.getX(), event.getY());
+
+        if (songURI != -1) {
+          mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
+          if (mediaPlayer.isPlaying()) {
+            mediaPlayer.reset();
+            // mediaPlayer.stop(); TODO: COMPROBAR EL MÉTODO
+          }
+          mediaPlayer.start();
+        }
+
         return true;
+      }
+    });
+
+    map.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Log.d("d", String.valueOf(v.getX()));
       }
     });
 

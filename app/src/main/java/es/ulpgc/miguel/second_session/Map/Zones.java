@@ -1,11 +1,15 @@
 package es.ulpgc.miguel.second_session.Map;
 
+import android.net.Uri;
+
 public class Zones {
   private String name;
+  private int songUri;
   private double x0, y0, x1, y1;
 
-  public Zones(String name, double x0, double y0, double x1, double y1) {
+  public Zones(String name, int songUri, double x0, double y0, double x1, double y1) {
     this.name = name;
+    this.songUri = songUri;
     this.x0 = x0;
     this.y0 = y0;
     this.x1 = x1;
@@ -22,6 +26,14 @@ public class Zones {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public int getSongUri() {
+    return songUri;
+  }
+
+  public void setSongUri(int songUri) {
+    this.songUri = songUri;
   }
 
   public double getX0() {

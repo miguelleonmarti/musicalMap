@@ -19,13 +19,13 @@ interface MapContract {
 
     void fetchData();
 
-    void getZone(double x, double y);
+    int getZone(double x, double y);
   }
 
   interface Model {
     String fetchData();
 
-    String getZone(double x, double y);
+    int getZone(double x, double y);
   }
 
   interface Router {

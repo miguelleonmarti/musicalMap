@@ -56,8 +56,9 @@ public class MapPresenter implements MapContract.Presenter {
   }
 
   @Override
-  public void getZone(double x, double y) {
-    String zone = model.getZone(x,y);
-    Log.d("result", zone);
+  public int getZone(double x, double y) {
+    return model.getZone(x,y);
   }
+
+
 }
