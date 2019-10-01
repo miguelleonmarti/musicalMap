@@ -45,13 +45,28 @@ public class MapActivity
       public boolean onTouch(View view, MotionEvent event) {
         int songURI = presenter.getZone(event.getX(), event.getY());
 
-        if (songURI != -1) {
+        /*if (songURI != -1) {
           mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
           if (mediaPlayer.isPlaying()) {
             mediaPlayer.reset();
             // mediaPlayer.stop(); TODO: COMPROBAR EL MÉTODO
           }
           mediaPlayer.start();
+        }*/
+
+        if (songURI != -1) {
+          if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
+            mediaPlayer.start();
+          } else {
+            mediaPlayer.release();
+            mediaPlayer = null;
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
+            mediaPlayer.start();
+          }
+        } else {
+          mediaPlayer.release();
+          mediaPlayer = null;
         }
 
         return true;
