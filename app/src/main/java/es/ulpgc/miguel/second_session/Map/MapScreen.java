@@ -10,8 +10,7 @@ public class MapScreen {
 
   public static void configure(MapContract.View view) {
 
-    WeakReference<FragmentActivity> context =
-        new WeakReference<>((FragmentActivity) view);
+    WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
 
     AppMediator mediator = (AppMediator) context.get().getApplication();
     MapState state = mediator.getMapState();

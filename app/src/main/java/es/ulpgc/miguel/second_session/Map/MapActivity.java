@@ -36,7 +36,7 @@ public class MapActivity
       public boolean onTouch(View v, MotionEvent event) {
         double x = event.getX();
         double y = event.getY();
-        //Log.d("c",String.valueOf(x) + ' ' + String.valueOf(y));
+        Log.d("c",String.valueOf(x) + ' ' + String.valueOf(y));
         presenter.getZone(x, y);
         return true;
       }

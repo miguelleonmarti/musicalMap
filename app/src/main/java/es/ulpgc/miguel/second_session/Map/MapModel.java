@@ -16,17 +16,17 @@ public class MapModel implements MapContract.Model {
     extremadura = new Zones("Extremadura", 271.6342, 501.5003, 329.5618, 569.4473);
     murcia = new Zones("Región de Murcia", 491.3596, 599.4239, 528.3134, 623.4052);
     mancha = new Zones("Castilla La Mancha", 374.5056, 501.5004, 500.3483, 558.4559);
-    valencia = new Zones("Valencia", 0, 0, 0, 0);
-    baleares = new Zones("Baleares", 0, 0, 0, 0);
+    valencia = new Zones("Valencia", 530.3109, 504.4980, 578.2510, 599.4239);
+    baleares = new Zones("Baleares", 627.1898, 482.5152, 757.0275, 558.4559);
     cataluna = new Zones("Cataluña", 529.2272, 354.6151, 677.1274, 432.5543);
-    aragon = new Zones("Aragón", 0, 0, 0, 0);
-    navarra = new Zones("Navarra", 0, 0, 0, 0);
-    vasco = new Zones("Vasco", 0, 0, 0, 0);
-    rioja = new Zones("Rioja", 0, 0, 0, 0);
-    cantabria = new Zones("Cantabria", 0, 0, 0, 0);
-    asturias = new Zones("Asturias", 0, 0, 0, 0);
+    aragon = new Zones("Aragón", 511.3346, 354.6151, 567.2647, 435.5519);
+    navarra = new Zones("Navarra", 478.3758, 326.6370, 504.3433, 350.6183);
+    vasco = new Zones("Vasco", 443.4195, 303.6550, 465.3920, 327.6362);
+    rioja = new Zones("Rioja", 437.4270, 352.6167, 472.3833, 365.6066);
+    cantabria = new Zones("Cantabria", 381.4969, 294.6620, 407.4644, 309.6502);
+    asturias = new Zones("Asturias", 283.6192, 281.6721, 346.5405, 303.6550);
     galicia = new Zones("Galicia", 188.7378, 281.6721, 268.6379, 363.6081);
-    madrid = new Zones("Madrid", 0, 0, 0, 0);
+    madrid = new Zones("Madrid", 392.4831, 450.5402, 424.4432, 473.5222);
     leon = new Zones("Castilla y León", 298.6005, 341.6253, 411.4594, 415.5676);
 
     zonesArrayList = new ArrayList<>();

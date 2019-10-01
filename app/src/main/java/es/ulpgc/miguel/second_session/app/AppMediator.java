@@ -4,8 +4,6 @@ import android.app.Application;
 
 import es.ulpgc.miguel.second_session.Map.MapState;
 
-
-
 public class AppMediator extends Application {
 
   private MapState mapState;
@@ -16,6 +14,10 @@ public class AppMediator extends Application {
 
     this.mapState = new MapState();
   }
+
+  //--------------------------------------------
+  //-----------GETTERS AND SETTERS--------------
+  //--------------------------------------------
 
   public MapState getMapState() {
     return this.mapState;

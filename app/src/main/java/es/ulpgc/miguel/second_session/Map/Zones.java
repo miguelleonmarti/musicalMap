@@ -12,6 +12,10 @@ public class Zones {
     this.y1 = y1;
   }
 
+  //--------------------------------------------
+  //-----------GETTERS AND SETTERS--------------
+  //--------------------------------------------
+
   public String getName() {
     return name;
   }
