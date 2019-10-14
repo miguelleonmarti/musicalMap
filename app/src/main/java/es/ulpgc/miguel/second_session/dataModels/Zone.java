@@ -1,13 +1,11 @@
-package es.ulpgc.miguel.second_session.Map;
+package es.ulpgc.miguel.second_session.dataModels;
 
-import android.net.Uri;
-
-public class Zones {
+public class Zone {
   private String name;
   private int songUri;
   private double x0, y0, x1, y1;
 
-  public Zones(String name, int songUri, double x0, double y0, double x1, double y1) {
+  public Zone(String name, int songUri, double x0, double y0, double x1, double y1) {
     this.name = name;
     this.songUri = songUri;
     this.x0 = x0;

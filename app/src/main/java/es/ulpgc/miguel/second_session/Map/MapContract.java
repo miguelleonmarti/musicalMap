@@ -2,6 +2,8 @@ package es.ulpgc.miguel.second_session.Map;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.miguel.second_session.dataModels.Zone;
+
 interface MapContract {
 
   interface View {
@@ -17,15 +19,11 @@ interface MapContract {
 
     void injectRouter(Router router);
 
-    void fetchData();
-
-    int getZone(double x, double y);
+    void getZone(double x, double y);
   }
 
   interface Model {
-    String fetchData();
-
-    int getZone(double x, double y);
+    Zone getZone(double x, double y);
   }
 
   interface Router {

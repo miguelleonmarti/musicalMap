@@ -1,8 +1,10 @@
 package es.ulpgc.miguel.second_session.Map;
 
-import android.util.Log;
+import android.media.MediaPlayer;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.miguel.second_session.dataModels.Zone;
 
 public class MapPresenter implements MapContract.Presenter {
 
@@ -12,6 +14,9 @@ public class MapPresenter implements MapContract.Presenter {
   private MapViewModel viewModel;
   private MapContract.Model model;
   private MapContract.Router router;
+
+  // media player
+  private MediaPlayer mediaPlayer;
 
   public MapPresenter(MapState state) {
     viewModel = state;
@@ -33,31 +38,16 @@ public class MapPresenter implements MapContract.Presenter {
   }
 
   @Override
-  public void fetchData() {
-    // Log.e(TAG, "fetchData()");
+  public void getZone(double x, double y) {
+    Zone zone = model.getZone(x,y);
 
-    // set passed state
-    MapState state = router.getDataFromPreviousScreen();
-    if (state != null) {
-      viewModel.data = state.data;
+    if (zone != null) {
+      viewModel.setName(zone.getName());
+      viewModel.setSongUri(zone.getSongUri());
+
+      view.get().displayData(viewModel);
     }
 
-    if (viewModel.data == null) {
-      // call the model
-      String data = model.fetchData();
-
-      // set initial state
-      viewModel.data = data;
-    }
-
-    // update the view
-    view.get().displayData(viewModel);
-
-  }
-
-  @Override
-  public int getZone(double x, double y) {
-    return model.getZone(x,y);
   }
 
 

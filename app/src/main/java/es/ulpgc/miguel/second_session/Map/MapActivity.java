@@ -1,19 +1,13 @@
 package es.ulpgc.miguel.second_session.Map;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.media.Image;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import es.ulpgc.miguel.second_session.R;
 
@@ -39,44 +33,12 @@ public class MapActivity
     // finding buttons
     map = findViewById(R.id.map);
 
-    // listeners
+    // listener
     map.setOnTouchListener(new View.OnTouchListener() {
       @Override
       public boolean onTouch(View view, MotionEvent event) {
-        int songURI = presenter.getZone(event.getX(), event.getY());
-
-        /*if (songURI != -1) {
-          mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
-          if (mediaPlayer.isPlaying()) {
-            mediaPlayer.reset();
-            // mediaPlayer.stop(); TODO: COMPROBAR EL MÉTODO
-          }
-          mediaPlayer.start();
-        }*/
-
-        if (songURI != -1) {
-          if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
-            mediaPlayer.start();
-          } else {
-            mediaPlayer.release();
-            mediaPlayer = null;
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), songURI);
-            mediaPlayer.start();
-          }
-        } else {
-          mediaPlayer.release();
-          mediaPlayer = null;
-        }
-
+        presenter.getZone(event.getX(), event.getY());
         return true;
-      }
-    });
-
-    map.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Log.d("d", String.valueOf(v.getX()));
       }
     });
 
@@ -87,9 +49,6 @@ public class MapActivity
   @Override
   protected void onResume() {
     super.onResume();
-
-    // do some work
-    presenter.fetchData();
   }
 
   @Override
@@ -99,9 +58,21 @@ public class MapActivity
 
   @Override
   public void displayData(MapViewModel viewModel) {
-    //Log.e(TAG, "displayData()");
-
-    // deal with the data
-
+    if (viewModel.getSongUri() != -1) {
+      if (mediaPlayer == null) {
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), viewModel.getSongUri());
+        mediaPlayer.start();
+        Toast.makeText(this, viewModel.getName(), Toast.LENGTH_SHORT).show();
+      } else {
+        mediaPlayer.release();
+        mediaPlayer = null;
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), viewModel.getSongUri());
+        mediaPlayer.start();
+        Toast.makeText(this, viewModel.getName(), Toast.LENGTH_SHORT).show();
+      }
+    } else {
+      mediaPlayer.release();
+      mediaPlayer = null;
+    }
   }
 }

@@ -3,7 +3,7 @@ package es.ulpgc.miguel.second_session.Map;
 import android.content.Intent;
 import android.content.Context;
 
-import es.ulpgc.miguel.second_session.app.AppMediator;
+import es.ulpgc.miguel.second_session.appMediator.AppMediator;
 
 public class MapRouter implements MapContract.Router {
 

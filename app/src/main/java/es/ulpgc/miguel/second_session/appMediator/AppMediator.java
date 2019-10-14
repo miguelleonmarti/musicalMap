@@ -1,4 +1,4 @@
-package es.ulpgc.miguel.second_session.app;
+package es.ulpgc.miguel.second_session.appMediator;
 
 import android.app.Application;
 

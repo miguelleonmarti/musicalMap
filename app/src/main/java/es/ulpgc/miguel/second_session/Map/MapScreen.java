@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 
 import android.support.v4.app.FragmentActivity;
 
-import es.ulpgc.miguel.second_session.app.AppMediator;
+import es.ulpgc.miguel.second_session.appMediator.AppMediator;
 
 public class MapScreen {
 
